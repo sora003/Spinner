@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        textView.setText("您选择的城市是北京");
         textView = (TextView) findViewById(R.id.textView);
+        textView.setText("您选择的城市是北京");
         spinner = (Spinner) findViewById(R.id.spinner);
         //设置数据源
         list = new ArrayList<String>();
