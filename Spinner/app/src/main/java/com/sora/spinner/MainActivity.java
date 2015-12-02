@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
+        textView.setText("您选择的城市是北京");
         textView = (TextView) findViewById(R.id.textView);
         spinner = (Spinner) findViewById(R.id.spinner);
         //设置数据源
@@ -53,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //spinner加载适配器
         spinner.setAdapter(adapter);
+        spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String cityname = adapter.getItem(position);
+               // list.get(position);
+                textView.setText("您选择的城市是"+cityname);
+            }
+        });
     }
 
     @Override
